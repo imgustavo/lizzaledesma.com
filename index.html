@@ -164,6 +164,41 @@
         transform: scale(1.1);
       }
 
+      /* ====== ESTILOS DE FORMULARIO ====== */
+      .contact-form {
+        max-width: 500px;
+        margin: 0 auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 98%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .contact-form button {
+        width: 100%;
+        padding: 10px;
+        background-color: #00438f;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      .contact-form button:hover {
+        background-color: #002147;
+      }
+
       /* ====== ESTILOS DE SECCIONES ====== */
       section {
         padding: 40px;
@@ -172,24 +207,27 @@
       }
 
       #inicio {
-        background-color: #231942ff;
+        background-color: #00438f;
         color: white;
       }
       #sobre {
-        background-color: #5e548eff;
+        background-color: #599bc5;
         color: white;
       }
       #servicios {
-        background-color: #9f86c0ff;
-        color: white;
+        background-color: #f5f5f5;
+        color: black;
       }
       #por-que {
-        background-color: #be95c4ff;
+        background-color: #00438f;
         color: white;
       }
-      #faq,
+      #faq {
+        background-color: #599bc5;
+        color: white;
+      }
       #contacto {
-        background-color: #e0b1cbff;
+        background-color: #c2c2c2;
         color: white;
       }
     </style>
@@ -264,6 +302,27 @@
           <h2>Preguntas Frecuentes</h2>
           <p><strong>¿Cuánto tiempo demora una tasación?</strong><br />Depende del tipo de inmueble, pero en general, en 48-72 horas.</p>
           <p><strong>¿Qué documentación necesito?</strong><br />Escritura, DNI del propietario y planos del inmueble.</p>
+        </section>
+        <section id="contacto">
+          <h2>Contáctame</h2>
+          <div class="contact-form">
+            <form action="https://formsubmit.co/lizaledesma23@gmail.com" method="POST">
+              <input type="text" name="nombre" placeholder="Nombre" required />
+              <input
+                type="tel"
+                name="telefono"
+                placeholder="Teléfono"
+                pattern="[0-9]{7,15}"
+                inputmode="numeric"
+                maxlength="15"
+                required
+                oninput="this.value = this.value.replace(/\D/g, '')"
+              />
+              <input type="email" name="email" placeholder="Email" required />
+              <textarea name="mensaje" rows="5" placeholder="Mensaje" required></textarea>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
         </section>
       </main>
     </div>
