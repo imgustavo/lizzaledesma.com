@@ -307,12 +307,17 @@
           <h2>Contáctame</h2>
           <div class="contact-form">
             <form action="https://formsubmit.co/lizaledesma23@gmail.com" method="POST">
+              <input type="hidden" name="_next" value="https://lizzaledesma.com/mensaje_enviado.html" />
+              <input type="hidden" name="_subject" value="🔔🎊🔔🎊🔔 Nuevo mensaje desde lizaledesma.com 🎊🔔🎊🔔🎊" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_cc" value="6ustav@gmail.com" />
               <input type="text" name="nombre" placeholder="Nombre" required />
               <input
                 type="tel"
                 name="telefono"
                 placeholder="Teléfono"
-                pattern="[0-9]{7,15}"
+                pattern="[0-9]{6,15}"
                 inputmode="numeric"
                 maxlength="15"
                 required
