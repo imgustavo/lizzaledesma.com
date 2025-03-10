@@ -16,18 +16,15 @@
     <meta property="og:title" content="Lizza Ledesma - Tasaciones Inmobiliarias" />
     <meta property="og:description" content="Martillera Pública y Corredora especializada en tasaciones inmobiliarias en Argentina." />
     <meta property="og:image" content="/img/lizza-banner.webp" />
-    <meta property="og:url" content="https://www.tusitioweb.com" />
-    <meta property="og:site_name" content="Lizza Ledesma" />
+    <meta property="og:url" content="https://www.lizzaledesma.com" />
+    <meta property="og:site_name" content="Lizza Ledesma - Martillera Pública & Corredora" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Lizza Ledesma - Tasaciones Inmobiliarias" />
     <meta name="twitter:description" content="Martillera Pública y Corredora especializada en tasaciones inmobiliarias en Argentina." />
     <meta name="twitter:image" content="/img/lizza-banner.webp" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lizza Ledesma - Tasaciones de Inmuebles & Martillera Pública</title>
-    <link rel="stylesheet" href="styles.css" />
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -35,7 +32,70 @@
         padding: 0;
         background-color: #e0dede;
         color: #333;
+        overflow-x: hidden;
       }
+
+      /* ====== ANIMACIÓN DE INTRO ====== */
+      .intro {
+        position: fixed; /* Ocupa toda la pantalla */
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(135deg, #002147, #3a7ca5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        text-align: center;
+        z-index: 1000;
+        animation: fadeOut 3s ease-out 3s forwards;
+      }
+
+      .intro-content {
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: fadeIn 2s ease-out forwards;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeOut {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          visibility: hidden;
+          display: none;
+        }
+      }
+
+      /* ====== ANIMACIÓN DEL CONTENIDO PRINCIPAL ====== */
+      .content {
+        opacity: 0;
+        animation: showContent 1s ease-out 3.5s forwards;
+      }
+
+      @keyframes showContent {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* ====== ESTILOS DEL HEADER ====== */
       header {
         background: url('/img/lizza-banner.webp') center/cover no-repeat;
         color: white;
@@ -43,6 +103,8 @@
         text-align: center;
         position: relative;
       }
+
+      /* ====== MENÚ BURGUER ====== */
       .menu-toggle {
         display: flex;
         flex-direction: column;
@@ -52,12 +114,15 @@
         right: 20px;
         z-index: 1001;
       }
+
       .menu-toggle div {
         width: 30px;
         height: 4px;
         background-color: white;
         margin: 5px 0;
       }
+
+      /* ====== MENÚ DESPLEGABLE ====== */
       nav {
         display: none;
         flex-direction: column;
@@ -72,17 +137,21 @@
         text-align: center;
         z-index: 1000;
       }
+
       nav.show-menu {
         display: flex;
       }
+
       nav ul {
         list-style: none;
         padding: 0;
         margin: 0;
       }
+
       nav ul li {
         padding: 20px;
       }
+
       nav ul li a {
         color: white;
         text-decoration: none;
@@ -90,14 +159,18 @@
         font-weight: bold;
         transition: transform 0.3s ease-in-out;
       }
+
       nav ul li a:hover {
         transform: scale(1.1);
       }
+
+      /* ====== ESTILOS DE SECCIONES ====== */
       section {
         padding: 40px;
         margin: 20px;
         border-radius: 10px;
       }
+
       #inicio {
         background-color: #231942ff;
         color: white;
@@ -114,10 +187,7 @@
         background-color: #be95c4ff;
         color: white;
       }
-      #faq {
-        background-color: #e0b1cbff;
-        color: white;
-      }
+      #faq,
       #contacto {
         background-color: #e0b1cbff;
         color: white;
@@ -125,74 +195,78 @@
     </style>
   </head>
   <body>
-    <header>
-      <h1>Lizza Ledesma</h1>
-      <h2>Martillera Pública & Corredora</h2>
+    <!-- ANIMACIÓN DE INTRO -->
+    <div class="intro">
+      <div class="intro-content">
+        <h1>Lizza Ledesma</h1>
+        <h2>Martillera Pública & Corredora</h2>
+      </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="content">
+      <header>
+        <h1>Lizza Ledesma</h1>
+        <h2>Martillera Pública & Corredora</h2>
+      </header>
+
+      <!-- MENÚ BURGUER -->
       <div class="menu-toggle" onclick="toggleMenu()">
         <div></div>
         <div></div>
         <div></div>
       </div>
-    </header>
 
-    <nav id="menu">
-      <ul>
-        <li><a href="#inicio" onclick="toggleMenu()">Inicio</a></li>
-        <li><a href="#sobre" onclick="toggleMenu()">Sobre mí</a></li>
-        <li><a href="#servicios" onclick="toggleMenu()">Servicios</a></li>
-        <li><a href="#por-que" onclick="toggleMenu()">¿Por qué elegirnos?</a></li>
-        <li><a href="#faq" onclick="toggleMenu()">Preguntas Frecuentes</a></li>
-        <li><a href="#contacto" onclick="toggleMenu()">Contacto</a></li>
-      </ul>
-    </nav>
-
-    <main>
-      <section id="inicio">
-        <h2>Bienvenido/a</h2>
-        <p>Brindamos tasaciones inmobiliarias precisas y profesionales en Argentina.</p>
-      </section>
-
-      <section id="sobre">
-        <h2>Sobre mí</h2>
-        <p>Soy Lizza Ledesma, martillera pública y corredora inmobiliaria con experiencia en tasaciones.</p>
-      </section>
-
-      <section id="servicios">
-        <h2>Servicios</h2>
+      <!-- MENÚ DESPLEGABLE -->
+      <nav id="menu">
         <ul>
-          <li>Tasaciones para compra-venta</li>
-          <li>Tasaciones para sucesiones</li>
-          <li>Tasaciones para garantías bancarias</li>
-          <li>Tasaciones comerciales</li>
+          <li><a href="#inicio" onclick="toggleMenu()">Inicio</a></li>
+          <li><a href="#sobre" onclick="toggleMenu()">Sobre mí</a></li>
+          <li><a href="#servicios" onclick="toggleMenu()">Servicios</a></li>
+          <li><a href="#por-que" onclick="toggleMenu()">¿Por qué elegirnos?</a></li>
+          <li><a href="#faq" onclick="toggleMenu()">Preguntas Frecuentes</a></li>
+          <li><a href="#contacto" onclick="toggleMenu()">Contacto</a></li>
         </ul>
-      </section>
+      </nav>
 
-      <section id="por-que">
-        <h2>¿Por qué elegirnos?</h2>
-        <p>
-          ✔ Profesional con experiencia y matrícula habilitante.<br />
-          ✔ Tasaciones precisas y ajustadas al mercado.<br />
-          ✔ Atención personalizada y confidencialidad garantizada.
-        </p>
-      </section>
+      <!-- SECCIONES DE LA PÁGINA -->
+      <main>
+        <section id="inicio">
+          <h2>Bienvenido/a</h2>
+          <p>Brindamos tasaciones inmobiliarias precisas y profesionales en Argentina.</p>
+        </section>
 
-      <section id="faq">
-        <h2>Preguntas Frecuentes</h2>
-        <p><strong>¿Cuánto tiempo demora una tasación?</strong><br />Depende del tipo de inmueble, pero en general, en 48-72 horas.</p>
-        <p><strong>¿Qué documentación necesito?</strong><br />Escritura, DNI del propietario y planos del inmueble.</p>
-      </section>
+        <section id="sobre">
+          <h2>Sobre mí</h2>
+          <p>Soy Lizza Ledesma, martillera pública y corredora inmobiliaria con experiencia en tasaciones.</p>
+        </section>
 
-      <form action="https://formsubmit.co/lizaledesma23@gmail.com" method="POST">
-        <input type="hidden" name="_next" value="https://lizzaledesma.com/mensaje_enviado.html" />
-        <input type="hidden" name="_subject" value="🔔🎊🔔🎊🔔 Nuevo mensaje desde lizaledesma.com 🎊🔔🎊🔔🎊" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_cc" value="6ustav@gmail.com" />
-        <input type="text" name="nombre" required />
-        <input type="email" name="e-mail" required />
-        <button type="submit">Send</button>
-      </form>
-    </main>
+        <section id="servicios">
+          <h2>Servicios</h2>
+          <ul>
+            <li>Tasaciones para compra-venta</li>
+            <li>Tasaciones para sucesiones</li>
+            <li>Tasaciones para garantías bancarias</li>
+            <li>Tasaciones comerciales</li>
+          </ul>
+        </section>
+
+        <section id="por-que">
+          <h2>¿Por qué elegirnos?</h2>
+          <p>
+            ✔ Profesional con experiencia y matrícula habilitante.<br />
+            ✔ Tasaciones precisas y ajustadas al mercado.<br />
+            ✔ Atención personalizada y confidencialidad garantizada.
+          </p>
+        </section>
+
+        <section id="faq">
+          <h2>Preguntas Frecuentes</h2>
+          <p><strong>¿Cuánto tiempo demora una tasación?</strong><br />Depende del tipo de inmueble, pero en general, en 48-72 horas.</p>
+          <p><strong>¿Qué documentación necesito?</strong><br />Escritura, DNI del propietario y planos del inmueble.</p>
+        </section>
+      </main>
+    </div>
 
     <script>
       function toggleMenu() {
