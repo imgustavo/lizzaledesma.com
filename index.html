@@ -370,12 +370,19 @@
           </div>
         </section>
         <!-- Botón de WhatsApp -->
-        <a href="https://wa.me/+5493764692295" target="_blank" class="whatsapp-button" id="whatsapp-button">
+        <a href="_blank" target="_blank" class="whatsapp-button" id="whatsapp-button">
           <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
         </a>
       </main>
     </div>
 
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        let phoneNumber = '5493764692295'; // Número sin el signo "+"
+        let whatsappLink = 'https://wa.me/' + phoneNumber;
+        document.getElementById('whatsapp-button').setAttribute('href', whatsappLink);
+      });
+    </script>
     <script>
       function toggleMenu() {
         var menu = document.getElementById('menu');
