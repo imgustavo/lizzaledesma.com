@@ -95,6 +95,33 @@
         }
       }
 
+      /* Botón de WhatsApp */
+      .whatsapp-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background-color: #25d366;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        z-index: 1000;
+      }
+      .whatsapp-button:hover {
+        transform: scale(1.1);
+      }
+      .whatsapp-button img {
+        width: 35px;
+        height: 35px;
+      }
+      .whatsapp-hidden {
+        display: none !important;
+      }
       /* ====== ESTILOS DEL HEADER ====== */
       header {
         background: url('/img/lizza-banner.webp') center/cover no-repeat;
@@ -329,13 +356,25 @@
             </form>
           </div>
         </section>
+        <!-- Botón de WhatsApp -->
+        <a href="https://wa.me/549XXXXXXXXXX" target="_blank" class="whatsapp-button" id="whatsapp-button">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+        </a>
       </main>
     </div>
 
     <script>
       function toggleMenu() {
         var menu = document.getElementById('menu');
-        menu.classList.toggle('show-menu');
+        var whatsappButton = document.getElementById('whatsapp-button');
+        if (menu) {
+          var isMenuVisible = menu.classList.toggle('show-menu');
+          if (isMenuVisible) {
+            whatsappButton.classList.add('whatsapp-hidden');
+          } else {
+            whatsappButton.classList.remove('whatsapp-hidden');
+          }
+        }
       }
     </script>
   </body>
